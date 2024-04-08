@@ -6,17 +6,19 @@ import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Home from './components/Home';
 import Rockets from './components/Rockets';
-import Crew from './components/Crew';
-import History from './components/History';
-import Starlink from './components/Starlink';
+// import Crew from './components/Crew';
+// import History from './components/History';
+// import Starlink from './components/Starlink';
+import ErrorPage from './components/Error404'
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    // errorElement: <ErrorPage />,
     children: [
       { 
-        path: "home",  
+        path: "",  
         element: <Home />
       },
       {
@@ -24,6 +26,10 @@ const router = createBrowserRouter([
         element: <Rockets />,
       },
       {
+        path: "*",
+        element: <ErrorPage />,
+      }
+      /* {
         path: "crew",
         element: <Crew />,
       },
@@ -34,7 +40,7 @@ const router = createBrowserRouter([
       {
         path: "starlink",
         element: <Starlink />,
-      },
+      }, */
       // You can add more nested routes here if needed
     ],
   },
