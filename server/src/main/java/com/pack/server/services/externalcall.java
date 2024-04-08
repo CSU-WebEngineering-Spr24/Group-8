@@ -1,4 +1,4 @@
-package com.pack.server;
+package com.pack.server.services;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
