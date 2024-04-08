@@ -1,7 +1,14 @@
 # Group-8
 
 
-commands to run 
+commands to run
+
+```
+cd  frontendapp
+
+npm start
+
+```
 
 Demo 1 update
 ![alt text](image.png)
