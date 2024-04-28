@@ -1,0 +1,5 @@
+cd frontendapp
+
+npm i
+
+npm run start
