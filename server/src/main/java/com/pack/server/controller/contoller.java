@@ -1,4 +1,4 @@
-package com.pack.server;
+package com.pack.server.controller;
 
 
 import org.springframework.http.ResponseEntity;
