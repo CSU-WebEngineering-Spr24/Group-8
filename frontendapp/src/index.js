@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Home from './components/Home';
 import Rockets from './components/Rockets';
-// import Crew from './components/Crew';
+import CrewPage from './components/Crew';
 // import History from './components/History';
 // import Starlink from './components/Starlink';
 import ErrorPage from './components/Error404'
@@ -28,11 +28,12 @@ const router = createBrowserRouter([
       {
         path: "*",
         element: <ErrorPage />,
-      }
-      /* {
-        path: "crew",
-        element: <Crew />,
       },
+       {
+        path: "crew",
+        element: <CrewPage />,
+      },
+      /*
       {
         path: "history",
         element: <History />,
