@@ -1,63 +1,109 @@
 package com.pack.server.domain;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 @Setter
 public class StarlinkResponse {
-    private SpaceTrack spaceTrack;
-    private String launch;
     private String version;
-    private double heightKm;
-    private double latitude;
-    private double longitude;
-    private double velocityKms;
-    private String id;
+
+    @JsonProperty("launch")
+    private String launchId;
+
+    private Double longitude;
+    private Double latitude;
+    private Double heightKm;
+    private Double velocityKms;
+
+    @JsonProperty("spaceTrack")
+    private SpaceTrack spaceTrack;
 
     @Getter
     @Setter
     public static class SpaceTrack {
-        private String CCSDS_OMM_VERS;
-        private String COMMENT;
-        private String CREATION_DATE;
-        private String ORIGINATOR;
-        private String OBJECT_NAME;
-        private String OBJECT_ID;
-        private String CENTER_NAME;
-        private String REF_FRAME;
-        private String TIME_SYSTEM;
-        private String MEAN_ELEMENT_THEORY;
-        private String EPOCH;
-        private double MEAN_MOTION;
-        private double ECCENTRICITY;
-        private double INCLINATION;
-        private double RA_OF_ASC_NODE;
-        private double ARG_OF_PERICENTER;
-        private double MEAN_ANOMALY;
-        private int EPHEMERIS_TYPE;
-        private String CLASSIFICATION_TYPE;
-        private int NORAD_CAT_ID;
-        private int ELEMENT_SET_NO;
-        private int REV_AT_EPOCH;
-        private double BSTAR;
-        private double MEAN_MOTION_DOT;
-        private double MEAN_MOTION_DDOT;
-        private double SEMIMAJOR_AXIS;
-        private double PERIOD;
-        private double APOAPSIS;
-        private double PERIAPSIS;
-        private String OBJECT_TYPE;
-        private String RCS_SIZE;
-        private String COUNTRY_CODE;
-        private String LAUNCH_DATE;
-        private String SITE;
-        private String DECAY_DATE;
-        private int DECAYED;
-        private long FILE;
-        private long GP_ID;
-        private String TLE_LINE0;
-        private String TLE_LINE1;
-        private String TLE_LINE2;
+        @JsonProperty("CCSDS_OMM_VERS")
+        private String ccsdsOmmVers;
+        @JsonProperty("COMMENT")
+        private String comment;
+        @JsonProperty("CREATION_DATE")
+        private String creationDate;
+        @JsonProperty("ORIGINATOR")
+        private String originator;
+        @JsonProperty("OBJECT_NAME")
+        private String objectName;
+        @JsonProperty("OBJECT_ID")
+        private String objectId;
+        @JsonProperty("CENTER_NAME")
+        private String centerName;
+        @JsonProperty("REF_FRAME")
+        private String refFrame;
+        @JsonProperty("TIME_SYSTEM")
+        private String timeSystem;
+        @JsonProperty("MEAN_ELEMENT_THEORY")
+        private String meanElementTheory;
+        @JsonProperty("EPOCH")
+        private String epoch;
+        @JsonProperty("MEAN_MOTION")
+        private Double meanMotion;
+        @JsonProperty("ECCENTRICITY")
+        private Double eccentricity;
+        @JsonProperty("INCLINATION")
+        private Double inclination;
+        @JsonProperty("RA_OF_ASC_NODE")
+        private Double raOfAscNode;
+        @JsonProperty("ARG_OF_PERICENTER")
+        private Double argOfPericenter;
+        @JsonProperty("MEAN_ANOMALY")
+        private Double meanAnomaly;
+        @JsonProperty("EPHEMERIS_TYPE")
+        private Integer ephemerisType;
+        @JsonProperty("CLASSIFICATION_TYPE")
+        private String classificationType;
+        @JsonProperty("NORAD_CAT_ID")
+        private Integer noradCatId;
+        @JsonProperty("ELEMENT_SET_NO")
+        private Integer elementSetNo;
+        @JsonProperty("REV_AT_EPOCH")
+        private Integer revAtEpoch;
+        @JsonProperty("BSTAR")
+        private Double bstar;
+        @JsonProperty("MEAN_MOTION_DOT")
+        private Double meanMotionDot;
+        @JsonProperty("MEAN_MOTION_DDOT")
+        private Double meanMotionDdot;
+        @JsonProperty("SEMIMAJOR_AXIS")
+        private Double semimajorAxis;
+        @JsonProperty("PERIOD")
+        private Double period;
+        @JsonProperty("APOAPSIS")
+        private Double apoapsis;
+        @JsonProperty("PERIAPSIS")
+        private Double periapsis;
+        @JsonProperty("OBJECT_TYPE")
+        private String objectType;
+        @JsonProperty("RCS_SIZE")
+        private String rcsSize;
+        @JsonProperty("COUNTRY_CODE")
+        private String countryCode;
+        @JsonProperty("LAUNCH_DATE")
+        private String launchDate;
+        @JsonProperty("SITE")
+        private String site;
+        @JsonProperty("DECAY_DATE")
+        private String decayDate;
+        @JsonProperty("DECAYED")
+        private Integer decayed;
+        @JsonProperty("FILE")
+        private Long file;
+        @JsonProperty("GP_ID")
+        private Long gpId;
+        @JsonProperty("TLE_LINE0")
+        private String tleLine0;
+        @JsonProperty("TLE_LINE1")
+        private String tleLine1;
+        @JsonProperty("TLE_LINE2")
+        private String tleLine2;
     }
 }
