@@ -10,16 +10,17 @@ function App() {
   return (
     <Container fluid className="p-0" style={{ minHeight: '100vh' , paddingLeft:'20px' }}>
       <Row className="align-items-stretch">
-        <Col xs={2} md={1} className="p-0">
-          <Sidebar />
+        <Col xs={2} lg={2} md={2} sm={3} className="p-0" >
+          {/* // side bar should be sticking to to the right of the col */}
+          <Sidebar style={{  margin:'10px' }} />
         </Col>
-        <Col xs={10} md={11} className="p-0">
+        <Col xs={10} lg={10} md={9} sm={9} className="p-0">
           <MyNavbar />
         </Col>
       </Row>
       <Row className="flex-grow-1">
         <Col className="p-0">
-          <div className="flex-grow-1" style={{  marginLeft:'30px' }}>
+          <div className="flex-grow-1" style={{  margin:'10px' }}>
             <Outlet />
           </div>
           <FooterCus />
