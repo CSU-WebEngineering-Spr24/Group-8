@@ -1,34 +1,42 @@
-const path = require('path');
+var path = require('path');
 
 module.exports = {
-  mode: 'development',
   entry: './src/index.js',
-  output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js',
-  },
-  module: {
-    rules: [
-      {
-        test: /\.jsx?$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['@babel/preset-env', '@babel/preset-react']
-          }
-        }
-      }
-    ]
-  },
-  resolve: {
-    extensions: ['.js', '.jsx']
-  },
-  devServer: {
-    static: {
-      directory: path.join(__dirname, 'public'),
+    devtool: 'eval-source-map',
+    cache: true,
+    mode: 'development',
+    output: {
+        path: __dirname,
+        filename: '../server/src/main/resources//static/built/bundle.js'
     },
-    compress: true,
-    port: 9000,
-  }
+    module: {
+        rules: [
+            {
+                test: path.join(__dirname, '.'),
+                exclude: /(node_modules)/,
+                use: [{
+                    loader: 'babel-loader',
+                    options: {
+                        presets: ["@babel/preset-env", "@babel/preset-react"]
+                    }
+                }]
+            },
+            {
+                test: /\.css$/,
+                use: [
+                    'style-loader',
+                    'css-loader'
+                ]
+            },
+            {
+                test: /\.(png|svg|jpg|gif|eot|otf|ttf|woff|woff2)$/,
+                use: [
+                    {
+                        loader: 'url-loader',
+                        options: {}
+                    }
+                ]
+            }
+        ]
+    }
 };
