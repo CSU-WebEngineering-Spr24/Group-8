@@ -4,9 +4,11 @@
 commands to run
 
 ```
-cd  frontendapp
+cd server
 
-npm start
+sdk install java 17.0.10-amzn
+
+gradle bootrun
 
 ```
 
