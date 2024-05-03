@@ -5,11 +5,29 @@ import App from './App'; // Main layout component
 import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Home from './components/Home';
-import Rockets from './components/Rockets';
+// import Rockets from './components/Rockets';
+import RocketIndex from './components/RocketIndex';
 import CrewPage from './components/Crew';
 // import History from './components/History';
 // import Starlink from './components/Starlink';
 import ErrorPage from './components/Error404'
+import RocketIndividual from './components/RocketIndividual';
+// AllRocketsPage
+import AllRocketsPage from './components/AllRocketws';
+import AllItemsPage from './components/AllItemsPage';
+// cards
+import RocketCard from './components/Cards/RocketCard';
+import CapsuleCard from './components/Cards/CapsuleCard';
+import DragonCard from './components/Cards/DragonCard';
+import ShipsCard from './components/Cards/ShipsCard';
+import ShipIndividual from './components/ShipIndividual';
+import DragonIndividual from './components/DragonIndividual';
+// HistoryTimeline
+import HistoryTimeline from './components/History';
+import Starlink from './components/Starlink';
+// LaunchesPage
+import LaunchesPage from './components/LaunchesPage';
+
 
 const router = createBrowserRouter([
   {
@@ -23,7 +41,42 @@ const router = createBrowserRouter([
       },
       {
         path: "rockets",
-        element: <Rockets />,
+        element: <RocketIndex />,
+      },
+      // allrockets path
+      {
+        path: "allrockets",
+        element: <AllItemsPage category="rockets" ItemComponent={RocketCard} />,
+      },
+      // allcapsules path
+      {
+        path: "allcapsules",
+        element: <AllItemsPage category="capsules" ItemComponent={CapsuleCard} />,
+      },
+      // alldragons path
+      {
+        path: "alldragons",
+        element: <AllItemsPage category="dragons" ItemComponent={DragonCard} />,
+      },
+      // allships path
+      {
+        path: "allships",
+        element: <AllItemsPage category="ships" ItemComponent={ShipsCard} />,
+      },
+      // <Route path="/rockets/:id" component={RocketIndividual} />
+      {
+        path: "rockets/:id",
+        element: <RocketIndividual />,
+      },
+      // <Route path="/ships/:id" component={ShipIndividual} />
+      {
+        path: "ships/:id",
+        element: <ShipIndividual />,
+      },
+      // DragonIndividual path
+      {
+        path: "dragons/:id",
+        element: <DragonIndividual />,
       },
       {
         path: "*",
@@ -33,19 +86,23 @@ const router = createBrowserRouter([
         path: "crew",
         element: <CrewPage />,
       },
-      /*
+      
       {
         path: "history",
-        element: <History />,
+        element: <HistoryTimeline />,
       },
+      
       {
         path: "starlink",
         element: <Starlink />,
-      }, */
-      // You can add more nested routes here if needed
+      },
+
+      {
+        path: "launches",
+        element: <LaunchesPage />,
+      },
     ],
   },
-  // If you have more top-level routes, they can be added here
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

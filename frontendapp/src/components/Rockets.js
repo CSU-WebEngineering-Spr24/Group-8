@@ -7,7 +7,8 @@ const Rockets = () => {
     const [dragons, setDragons] = useState([]);
 
     useEffect(() => {
-        fetch('https://api.spacexdata.com/v4/dragons')
+        // fetch('https://api.spacexdata.com/v4/dragons')
+        fetch('/api/spacex/dragons')
             .then(response => response.json())
             .then(data => setDragons(data))
             .catch(error => console.error('Error fetching data: ', error));
