@@ -9,7 +9,13 @@ import com.pack.server.domain.LandPadsResponse;
 import com.pack.server.domain.ShipResponse;
 import com.pack.server.domain.DragonResponse;
 import com.pack.server.domain.LaunchResponse;
+import com.pack.server.domain.LaunchSearchResponse;
 
+import java.util.Map;
+
+import org.springframework.http.ResponseEntity;
+
+import com.pack.server.domain.CapsuleResponse;
 
 
 public interface SpaceXService {
@@ -40,4 +46,11 @@ public interface SpaceXService {
 
     LaunchResponse getLaunchDetails(String id);
     LaunchResponse[] getAllLaunches();
+
+    CapsuleResponse getCapsuleDetails(String id);
+    CapsuleResponse[] getAllCapsules();
+
+    Object queryLaunches(Map<String, Object> queryParams);
+
+    LaunchSearchResponse searchLaunches(String name);
 }

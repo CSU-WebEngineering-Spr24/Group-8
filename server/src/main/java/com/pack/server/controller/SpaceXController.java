@@ -10,11 +10,18 @@ import com.pack.server.domain.LandPadsResponse;
 import com.pack.server.domain.ShipResponse;
 import com.pack.server.domain.DragonResponse;
 import com.pack.server.domain.LaunchResponse;
+import com.pack.server.domain.LaunchSearchResponse;
+import com.pack.server.domain.CapsuleResponse;
+
+import java.util.HashMap;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -122,4 +129,44 @@ public class SpaceXController {
     public LaunchResponse[] getAllLaunches() {
         return spaceXService.getAllLaunches();
     }
+
+    // Capsules
+    @GetMapping("/capsules/{id}")
+    public CapsuleResponse getCapsule(@PathVariable String id) {
+        return spaceXService.getCapsuleDetails(id);
+    }
+
+    @GetMapping("/capsules")
+    public CapsuleResponse[] getAllCapsules() {
+        return spaceXService.getAllCapsules();
+    }
+
+
+    @GetMapping("/launchessearch")
+    public ResponseEntity<Object> queryLaunches(
+            @RequestParam(required = false) String search,
+            @RequestParam(defaultValue = "1",required = false) int page,
+            @RequestParam(defaultValue = "10",required = false) int limit) {
+
+        // Construct query parameters
+        Map<String, Object> queryParams = new HashMap<>();
+        if (search != null) {
+            queryParams.put("search", search);
+        }
+        // queryParams.put("page", page);
+        // queryParams.put("limit", limit);
+
+        // Invoke service method to fetch data from SpaceX API
+        Object response = spaceXService.queryLaunches(queryParams);
+
+        // Return response to client
+        return ResponseEntity.ok(response);
+    }
+
+
+    @GetMapping("/searchlaunches") // takes name only
+    public LaunchSearchResponse searchLaunches(@RequestParam String name) {
+        return spaceXService.searchLaunches(name);
+    }
+
 }
