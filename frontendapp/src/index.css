@@ -11,3 +11,46 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+
+.map-container {
+  height: 400px;
+}
+
+
+.timeline {
+  position: relative;
+}
+
+.timeline-line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background-color: #ccc;
+  z-index: -1;
+}
+
+.timeline-item {
+  display: flex;
+}
+
+.timeline-item.left .card {
+  margin-right: auto;
+  /* text-align: left; */
+  width: 48%;
+}
+
+.timeline-item.right .card {
+  margin-left: auto;
+  /* text-align: right; */
+  width: 48%;
+}
+
+
+.card-content {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

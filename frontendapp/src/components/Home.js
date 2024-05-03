@@ -2,9 +2,10 @@ import React from 'react';
 import { Container, Row, Col, Button, Card } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap'; // Import LinkContainer
 import './home.css';
+import {useNavigate} from 'react-router-dom';
 
 const HomePage = () => {
-  
+  const navigate = useNavigate();    
   return (
     <Container fluid>
       {/* Header Section */}
@@ -19,9 +20,9 @@ const HomePage = () => {
             <Card.ImgOverlay>
               <Card.Title>SpaceX Explorer</Card.Title>
               <Card.Text>
-                Subheading with description of your shopping site
+                Read about SpaceX and API used for this project
               </Card.Text>
-              <Button variant="primary">Button</Button>
+              <Button variant="primary" href ="https://github.com/r-spacex/SpaceX-API/blob/master/README.md">Explore API</Button>
             </Card.ImgOverlay>
           </Card>
         </Col>
@@ -32,7 +33,7 @@ const HomePage = () => {
         {/* Wrap each Card with LinkContainer to make it clickable */}
         <LinkContainer to="/rockets">
           <Col>
-            <Card>
+            <Card onClick={(e)=>{e.preventDefault();navigate('/rockets')}}>
               <Card.Img 
                 variant="top" 
                 src="https://cdn.mos.cms.futurecdn.net/MHy4P6q3tVwgDGdw69XwoQ-1200-80.jpg" 
@@ -48,7 +49,7 @@ const HomePage = () => {
 
         <LinkContainer to="/crew">
           <Col>
-            <Card>
+            <Card onClick={(e)=>{e.preventDefault();navigate('/crew')}}>
               <Card.Img 
                 variant="top" 
                 src="https://cdn.mos.cms.futurecdn.net/j54xVfDBCTf5VYr5nTGkyQ.jpeg"
@@ -63,7 +64,7 @@ const HomePage = () => {
 
         <LinkContainer to="/history">
           <Col>
-            <Card>
+            <Card onClick={(e)=>{e.preventDefault();navigate('/history')}}>
               <Card.Img 
                 variant="top" 
                 src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj3cw1-5_0yRAdabrZJFAlaeQf46uIAsk1w2z98faylXc77Mu8iR8ys31TdqZek9q4kOGHjprPQgMefYjkETys-T2WRIuQzn_HUkM9L1FW1dVtFnVJ2IS5YKDBT7nNRFYdtiJsGRRjRGvmi/s2048/SpaceX+Starship+timeline+%25282021.06%2529+by+Ryan+MacDonald_infographic.jpg"
@@ -76,9 +77,9 @@ const HomePage = () => {
           </Col>
         </LinkContainer>
 
-        <LinkContainer to="/history">
+        <LinkContainer to="/starlink">
           <Col>
-            <Card>
+            <Card onClick={(e)=>{e.preventDefault();navigate('/starlink')}}>
               <Card.Img 
                 variant="top" 
                 src="https://i.insider.com/5cdc4cade9f08a482e5775cc?width=1136&format=jpeg"
